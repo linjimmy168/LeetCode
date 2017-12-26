@@ -10,16 +10,8 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            ListNode node = new ListNode(-10);
-            ListNode preNode = new ListNode(-12);
-            preNode.next = new ListNode(-11);
-            preNode.next.next = node;
-            node.next = new ListNode(-3);
-            node.next.next = new ListNode(0);
-            node.next.next.next = new ListNode(5);
-            node.next.next.next.next = new ListNode(9);
-            node.next.next.next.next.next = new ListNode(10);
-            var a = DepthfirstSearch.SortedListToBST(preNode);
+            int[] array = new int[] { 5, 7, 7, 8, 8, 10 };
+            BinarySearch.SearchRange(array, 8);
             Console.Read();
         }
     }

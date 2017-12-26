@@ -9,6 +9,43 @@ namespace LeetCode
     public class BinarySearch
     {
         /// <summary>
+        /// 34. Search for a Range (題目要求O(logn)複雜度 => binary search)
+        ///  BinarySearch.SearchRange(new int[] { },0);
+        ///  
+        /// int[] array = new int[] { 5, 7, 7, 8, 8, 10 };
+        /// BinarySearch.SearchRange(array, 8);
+        /// 
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public static int[] SearchRange(int[] nums, int target)
+        {
+            int i = 0, j = nums.Length - 1;
+            int[] result = new int[] { -1, -1 };
+
+            while (i < j)
+            {
+                int mid = (i + j) / 2;
+                if (nums[mid] < target) i = mid + 1; //
+                else j = mid; //j最後會等於i,出迴圈
+            }
+
+            if (nums.Length == 0 || target != nums[i]) return result;
+            else result[0] = i;
+
+            j = nums.Length - 1;
+            while (i < j)
+            {
+                int mid = (i + j) / 2 + 1;
+                if (nums[mid] > target) j = mid - 1;
+                else i = mid;
+            }
+            result[1] = j;
+            return result;
+        }
+
+        /// <summary>
         /// 35. Search Insert Position
         /// Input: [1,3,5,6], 5
         /// Output: 2
