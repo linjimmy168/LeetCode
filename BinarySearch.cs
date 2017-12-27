@@ -27,7 +27,7 @@ namespace LeetCode
             while (i < j)
             {
                 int mid = (i + j) / 2;
-                if (nums[mid] < target) i = mid + 1; //
+                if (nums[mid] < target) i = mid + 1; //此部分控制左搜尋
                 else j = mid; //j最後會等於i,出迴圈
             }
 
@@ -38,7 +38,7 @@ namespace LeetCode
             while (i < j)
             {
                 int mid = (i + j) / 2 + 1;
-                if (nums[mid] > target) j = mid - 1;
+                if (nums[mid] > target) j = mid - 1; //此部分控制右搜尋
                 else i = mid;
             }
             result[1] = j;
@@ -80,5 +80,33 @@ namespace LeetCode
             if (n == 0) return 1;
             return x * MyPow(x, n - 1);
         }
+
+        /// <summary>
+        /// 153. Find Minimum in Rotated Sorted Array
+        ///   int[] array = new int[] {10, 15, 1, 2, 3, 4,9 };
+        ///   BinarySearch.FindMin(array);
+        /// 此題由2分法找出轉折點,而轉折點的右邊第一數必為最小值
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public static int FindMin(int[] nums)
+        {
+            int start = 0, end = nums.Length - 1;
+            while(start < end)
+            {
+                if (nums[start] < nums[end])
+                    return nums[start];
+
+                int mid = (start + end) / 2;
+                if (nums[start] <= nums[mid])//右比左大
+                    start = mid + 1;         //比較此mid無意義,比較mid的下一個
+                else
+                    end = mid;
+            }
+            return nums[start];
+        }
+
+
+
     }
 }

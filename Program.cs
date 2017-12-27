@@ -10,8 +10,8 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            int[] array = new int[] { 5, 7, 7, 8, 8, 10 };
-            BinarySearch.SearchRange(array, 8);
+            int[] array = new int[] {10, 15, 1, 2, 3, 4,9 };
+            BinarySearch.FindMin(array);
             Console.Read();
         }
     }
