@@ -10,7 +10,8 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            TwoPointer.LengthOfLongestSubstring("adbccba");
+            int[] que = new int[] { 2, 1, 1, 0 };
+            TwoPointer.SortColors(que);
             Console.Read();
         }
     }

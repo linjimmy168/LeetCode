@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="BinarySearch.cs" />
     <Compile Include="DepthfirstSearch.cs" />
+    <Compile Include="Dynamic Programming.cs" />
     <Compile Include="HashTable.cs" />
     <Compile Include="ListNode.cs" />
     <Compile Include="Math.cs" />

@@ -39,5 +39,63 @@ namespace LeetCode
             }
             return max;
         }
+
+
+        /// <summary>
+        /// 19. Remove Nth Node From End of List
+        /// 使用fast, slow的方法移動
+        ///  ListNode node = new ListNode(1);
+        /// node.next = new ListNode(2);
+        /// node.next.next = new ListNode(3);
+        /// node.next.next.next = new ListNode(4);
+        /// var a = TwoPointer.RemoveNthFromEnd(node, 1);
+        /// </summary>
+        /// <param name="head"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static ListNode RemoveNthFromEnd(ListNode head, int n)
+        {
+            ListNode headNode = new ListNode(0); //初始化一個ListNode 可以使比免head只有一個時導致錯誤
+            headNode.next = head;
+            ListNode slow = headNode;
+            ListNode fast = headNode;
+
+            for (int i = 0; i < n; i++)
+            {
+                fast = fast.next;     //先移動n次
+            }
+
+            while (fast.next != null) //同步一起移動到fast的底
+            {
+                fast = fast.next;
+                slow = slow.next;
+            }
+
+            if (slow.next != null) //slow.next即為要被換掉的node
+                slow.next = slow.next.next;
+            return headNode.next;
+        }
+
+        /// <summary>
+        /// 75. Sort Colors
+        /// 
+        /// </summary>
+        /// <param name="nums"></param>
+        public static void SortColors(int[] nums)
+        {
+            int temp = 0;
+            for (int i = 0; i < nums.Length - 1; i++)
+            {
+                for (int j = 1; j < nums.Length; j++)
+                {
+                    if (nums[i] > nums[j])
+                    {
+                        temp = nums[i];
+                        nums[i] = nums[j];
+                        nums[j] = temp;
+                    }
+                }
+            }
+        }
     }
 }
