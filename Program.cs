@@ -10,8 +10,8 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            int[] que = new int[] { 2, 1, 1, 0 };
-            TwoPointer.SortColors(que);
+            int[] array = new int[] { 2, 3, 6, 7 };
+            var a = BackTracking.CombinationSum(array, 7);
             Console.Read();
         }
     }

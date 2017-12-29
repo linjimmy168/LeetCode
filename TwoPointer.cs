@@ -27,7 +27,7 @@ namespace LeetCode
                 if (dic.ContainsKey(s[i]))
                 {
                     j = System.Math.Max(j, dic[s[i]]+1);  //dic[s[i]]+1: 找到此上一重複值的位置+1,即為上一個重複值的下一個位置(用來計算長度)
-                    //為何此處用Max原因因為我們只讓指標i,j往前跑不能往後跑,
+                    //為何此處用Max? 原因:只讓指標i,j往前跑不能往後跑,
                     //舉例來說adbccba 迴圈四次已發現c重複所以將j移至4但無Max時下一個b會導致j返回到3所以只能取最大值
                     dic[s[i]] = i;                  //從字典找出此重複值,更改為目前位置
                 }
@@ -76,9 +76,39 @@ namespace LeetCode
             return headNode.next;
         }
 
+
+        /// <summary>
+        /// 46. Permutations
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public IList<IList<int>> Permute(int[] nums)
+        {
+            List<IList<int>> list = new List<IList<int>>();
+            backTrack(list, new List<int>(), nums);
+            return list;
+        }
+
+        private void backTrack(List<IList<int>> list, List<int> tempList, int[] nums)
+        {
+            if (tempList.Count == nums.Length) list.Add(tempList.ToList());
+            else if (tempList.Count > nums.Length) return;
+            else
+            {
+                for (int i = 0; i < nums.Length; i++)
+                {
+                    if (tempList.Contains(nums[i])) continue;
+                    tempList.Add(nums[i]);
+                    backTrack(list, tempList, nums);
+                    tempList.RemoveAt(tempList.Count - 1);
+                }
+            }
+        }
+
         /// <summary>
         /// 75. Sort Colors
-        /// 
+        /// int[] que = new int[] { 2, 1, 1, 0 };
+        /// TwoPointer.SortColors(que);
         /// </summary>
         /// <param name="nums"></param>
         public static void SortColors(int[] nums)
@@ -86,7 +116,7 @@ namespace LeetCode
             int temp = 0;
             for (int i = 0; i < nums.Length - 1; i++)
             {
-                for (int j = 1; j < nums.Length; j++)
+                for (int j = i+1; j < nums.Length; j++)
                 {
                     if (nums[i] > nums[j])
                     {

@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Array.cs" />
+    <Compile Include="BackTracking.cs" />
     <Compile Include="BinarySearch.cs" />
     <Compile Include="DepthfirstSearch.cs" />
     <Compile Include="Dynamic Programming.cs" />
@@ -50,6 +52,7 @@
     <Compile Include="Math.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="stringClass.cs" />
     <Compile Include="Tree.cs" />
     <Compile Include="TreeNode.cs" />
     <Compile Include="TwoPointer.cs" />
