@@ -10,8 +10,7 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            int[] array = new int[] { 2, 3, 6, 7 };
-            var a = BackTracking.CombinationSum(array, 7);
+            var a = BackTracking.GenerateParenthesis(3);
             Console.Read();
         }
     }

@@ -78,34 +78,6 @@ namespace LeetCode
 
 
         /// <summary>
-        /// 46. Permutations
-        /// </summary>
-        /// <param name="nums"></param>
-        /// <returns></returns>
-        public IList<IList<int>> Permute(int[] nums)
-        {
-            List<IList<int>> list = new List<IList<int>>();
-            backTrack(list, new List<int>(), nums);
-            return list;
-        }
-
-        private void backTrack(List<IList<int>> list, List<int> tempList, int[] nums)
-        {
-            if (tempList.Count == nums.Length) list.Add(tempList.ToList());
-            else if (tempList.Count > nums.Length) return;
-            else
-            {
-                for (int i = 0; i < nums.Length; i++)
-                {
-                    if (tempList.Contains(nums[i])) continue;
-                    tempList.Add(nums[i]);
-                    backTrack(list, tempList, nums);
-                    tempList.RemoveAt(tempList.Count - 1);
-                }
-            }
-        }
-
-        /// <summary>
         /// 75. Sort Colors
         /// int[] que = new int[] { 2, 1, 1, 0 };
         /// TwoPointer.SortColors(que);
