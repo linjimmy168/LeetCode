@@ -10,8 +10,13 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            char[,] array = new char[,] { { 'A', 'B', 'C', 'E' }, { 'S', 'F', 'C', 'S' }, { 'A', 'D', 'E', 'E' } };
-            BackTracking.Exist(array, "ABCCCED");
+            TreeNode node = new TreeNode(1);
+            node.left = new TreeNode(2);
+            node.left.right = new TreeNode(5);
+            node.left.right.left = new TreeNode(6);
+            node.right = new TreeNode(3);
+            node.right.right = new TreeNode(4);
+            BreadthFirstSearch.MinDepth(node);
             Console.Read();
         }
     }
