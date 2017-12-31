@@ -95,5 +95,76 @@ namespace LeetCode
             }
         }
 
+        //public static bool Exist(char[,] board, string word)
+        //{
+        //    int rowsIndex = board.GetLength(0);
+        //    int colsIndex = board.Length / rowsIndex;
+        //    bool[,] flagTable = new bool[rowsIndex, colsIndex];
+        //    return backTrack(board, flagTable, word, 0, 0, true);
+        //}
+
+        //private static bool backTrack(char[,] board, bool[,] flagTable, string word, int rowsIndex, int colsIndex, bool success)
+        //{
+        //    if (word.Length == 0) return true;
+        //    else if (rowsIndex == board.GetLength(0) - 1 && colsIndex == (board.Length / board.GetLength(0)) - 1 && flagTable[rowsIndex, colsIndex]) return false;
+        //    else
+        //    {
+        //        for (int i = rowsIndex; i < board.GetLength(0); i++)
+        //        {
+        //            for (int j = colsIndex; j < (board.Length / board.GetLength(0)); j++)
+        //            {
+        //                if (board[i, j] == word[0] && flagTable[i, j] == false)
+        //                {
+        //                    flagTable[i, j] = true;
+        //                    if (backTrack(board, flagTable, word.Substring(1), i + 1, j, success) || backTrack(board, flagTable, word.Substring(1), i, j + 1, success))
+        //                        return true;
+        //                    flagTable[i, j] = false;
+        //                }
+        //            }
+        //        }
+        //        return false;
+        //    }
+        //}
+
+        public static bool[,] visited;
+        public static bool Exist(char[,] board, string word)
+        {
+            int rows = board.GetLength(0);
+            int columns = board.Length / board.GetLength(0);
+            visited = new bool[rows, columns];
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    if (search(board, word, i, j, 0))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        private static bool search(char[,] board, string word, int i, int j, int index)
+        {
+            if (index == word.Length)
+                return true;
+
+            if (i >= board.GetLength(0) || i < 0 || j >= board.Length / board.GetLength(0) || j < 0)
+                return false;
+
+            if (board[i, j] != word[index] || visited[i, j])
+                return false;
+
+            visited[i, j] = true;
+            if (search(board, word, i - 1, j, index + 1) ||
+               search(board, word, i + 1, j, index + 1) ||
+               search(board, word, i, j - 1, index + 1) ||
+               search(board, word, i, j + 1, index + 1))
+                return true;
+
+            visited[i, j] = false;
+            return false;
+        }
     }
 }

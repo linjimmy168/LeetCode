@@ -10,7 +10,8 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            var a = BackTracking.GenerateParenthesis(3);
+            char[,] array = new char[,] { { 'A', 'B', 'C', 'E' }, { 'S', 'F', 'C', 'S' }, { 'A', 'D', 'E', 'E' } };
+            BackTracking.Exist(array, "ABCCCED");
             Console.Read();
         }
     }

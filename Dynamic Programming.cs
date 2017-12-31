@@ -18,13 +18,13 @@ namespace Dynamic_Programming
         /// </summary>
         /// <param name="nums"></param>
         /// <returns></returns>
-        static public int MaximumSubarray(int[] nums)
+        public static int MaximumSubarray(int[] nums)
         {
             int maxSoFar = nums[0], maxEndingHere = nums[0];
             for (int i = 1; i < nums.Length; i++)
             {
                 maxEndingHere = Math.Max(maxEndingHere + nums[i], nums[i]);  //累加起來(包含目前的值)都沒比目前的值大,直接取目前的值
-                maxSoFar = Math.Max(maxSoFar, maxEndingHere);
+                maxSoFar = Math.Max(maxSoFar, maxEndingHere); //與先前的記錄的最大值相比
             }
             return maxSoFar;
         }

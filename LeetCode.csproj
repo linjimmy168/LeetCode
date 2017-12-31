@@ -45,6 +45,7 @@
     <Compile Include="Array.cs" />
     <Compile Include="BackTracking.cs" />
     <Compile Include="BinarySearch.cs" />
+    <Compile Include="BreadthFirstSearch.cs" />
     <Compile Include="DepthfirstSearch.cs" />
     <Compile Include="Dynamic Programming.cs" />
     <Compile Include="HashTable.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="stringClass.cs" />
+    <Compile Include="Test.cs" />
     <Compile Include="Tree.cs" />
     <Compile Include="TreeNode.cs" />
     <Compile Include="TwoPointer.cs" />
