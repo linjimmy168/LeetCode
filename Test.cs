@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace LeetCode
 {
-    class Test
+    public class Test
     {
-        //public static Test()
-        //{
-        //    byte[]
-        //}
+        public static void Test2()
+        {
+            int start = 10, end = 100;
+            int mid = start + (end - start) / 2;
+        }
     }
 }
