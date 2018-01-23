@@ -62,5 +62,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LintCode\LintCode.csproj">
+      <Project>{8d313daa-c92c-4e5a-abd2-8bbcca2b4c22}</Project>
+      <Name>LintCode</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

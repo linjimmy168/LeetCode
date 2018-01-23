@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LintCode;
 
 namespace LeetCode
 {
@@ -10,7 +11,7 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            Test.Test2();
+           
             Console.Read();
         }
     }

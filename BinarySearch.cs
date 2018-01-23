@@ -81,32 +81,64 @@ namespace LeetCode
             return x * MyPow(x, n - 1);
         }
 
+
+       
+
         /// <summary>
         /// 153. Find Minimum in Rotated Sorted Array
         ///   int[] array = new int[] {10, 15, 1, 2, 3, 4,9 };
         ///   BinarySearch.FindMin(array);
-        /// 此題由2分法找出轉折點,而轉折點的右邊第一數必為最小值
+        /// 此題由2分法找出轉折點,而轉折點的右邊第一數必為最小值, 而轉折點本身為最大值
+        /// 所以先找到最大點之後 +1的位置即為最小值
         /// </summary>
         /// <param name="nums"></param>
         /// <returns></returns>
         public static int FindMin(int[] nums)
         {
             int start = 0, end = nums.Length - 1;
-            while(start < end)
+            int target = nums[nums.Length - 1];
+            while (start + 1 < end)
             {
-                if (nums[start] < nums[end])
-                    return nums[start];
-
-                int mid = (start + end) / 2;
-                if (nums[start] <= nums[mid])//右比左大
-                    start = mid + 1;         //比較此mid無意義,比較mid的下一個
-                else
+                int mid = start + (end - start) / 2;
+                if (nums[mid] <= target)
+                {
                     end = mid;
+                }
+                else
+                {
+                    start = mid;
+                }
             }
-            return nums[start];
+            return System.Math.Min(nums[end],nums[start]); //若為正常順序即錯誤
         }
 
-
-
+        /// <summary>
+        /// 162. Find Peak Element
+        /// 這題跟LintCode條件不一樣
+        /// int[] array = new int[] { 3,2,1};
+        /// BinarySearch.FindPeakElement(array);
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public static int FindPeakElement(int[] nums)
+        {
+            if(nums == null || nums.Length <2 ){
+                return 0;
+            }
+            int start = 0, end = nums.Length - 1;
+            while (start + 1 < end)
+            {
+                int mid = start + (end - start) / 2;
+                if (nums[mid] > nums[mid + 1])
+                {
+                    end = mid;
+                }
+                else
+                {
+                    start = mid;
+                }
+            }
+            return nums[start] > nums[end] ? start : end;
+        }
     }
 }
