@@ -10,8 +10,10 @@ namespace LeetCode
     {
         public static void Test2()
         {
-            int start = 10, end = 100;
-            int mid = start + (end - start) / 2;
+            List<int> list = new List<int>() { 1,2,3,4};
+            var temp = list[2];
+            list[2] = list[1];
+            list[1] = temp;
         }
     }
 }
