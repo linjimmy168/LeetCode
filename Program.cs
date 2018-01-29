@@ -12,15 +12,10 @@ namespace LeetCode
         static void Main(string[] args)
         {
             var root = new LintCode.TreeNode(1);
-            root.left = new LintCode.TreeNode(-5);
-            root.left.left = new LintCode.TreeNode(0);
-            root.left.right = new LintCode.TreeNode(2);
             root.right = new LintCode.TreeNode(2);
-            root.right.left = new LintCode.TreeNode(-4);
-            root.right.right = new LintCode.TreeNode(-5);
-
+            root.right.left = new LintCode.TreeNode(3);
             var bt = new BinaryTreeDivideConquer();
-            var result = bt.findMinSubtree(root);
+            var result = bt.InorderTraversal(root);
             Console.Read();
         }
     }
